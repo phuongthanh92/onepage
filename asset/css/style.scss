@@ -1,0 +1,199 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details,
+figure, figcaption, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  text-wrap: none;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, menu, nav, section {
+  display: block;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+}
+
+a:hover, a:focus {
+  text-decoration: none;
+}
+
+$lgScreen: 1200px;
+$mdScreen: 992px;
+$smScreen: 768px;
+$xsScreen: 480px;
+%select-default {
+  &::-ms-expand {
+    display: none;
+  }
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url("../../images/dropdown-select.png");
+  background-repeat: no-repeat;
+  background-position-x: 90%;
+  background-position-y: center;
+  background-position: right 5px center;
+  padding-right: 50px;
+}
+
+@mixin transitionNormal {
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+@mixin displayTable($vertical) {
+  display: table;
+  width: 100%;
+  > .di-table-cell {
+    display: table-cell;
+    vertical-align: $vertical;
+    padding: 0;
+  }
+}
+
+@mixin mediaList($marginRight) {
+  .item {
+    overflow: hidden;
+    .thumb {
+      float: left;
+      margin-right: $marginRight;
+      max-width: 50%;
+      img {
+        max-width: 100%;
+      }
+    }
+    .wrapper {
+      overflow: hidden;
+      a.title {
+        font-size: inherit;
+      }
+    }
+    @media screen and(max-width: $xsScreen) {
+      .content {
+        display: none;
+      }
+    }
+  }
+}
+
+@mixin mediaThumb($padding) {
+  margin: 0 -$padding;
+  .item {
+    float: left;
+    padding: $padding;
+    .thumb {
+      margin-bottom: $padding;
+      img {
+        width: 100%;
+      }
+    }
+    .wrapper {
+      a.title {
+        font-weight: bold;
+      }
+    ;
+    }
+  }
+}
+
+@mixin mediaCover {
+  .item {
+    position: relative;
+    .wrapper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      @include transitionNormal;
+      .conner {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        width: 100%;
+        text-align: center;
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        -o-transform: translateY(-50%);
+        transform: translateY(-50%);
+      }
+    }
+  }
+}
+
+@mixin squareItem($size) {
+  width: $size;
+  height: $size;
+  line-height: $size !important;
+  text-align: center;
+}
+
+@mixin clearfix {
+  zoom: 1;
+  &:after {
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    line-height: 0;
+    visibility: hidden;
+  }
+}
+
+@mixin transform($transform) {
+  -webkit-transform: $transform;
+  -moz-transform: $transform;
+  -ms-transform: $transform;
+  -o-transform: $transform;
+  transform: $transform;
+}
+
+a, a:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+.fa {
+  font-size: inherit;
+  line-height: inherit;
+}
+
+/*end default*/
+
+html {
+  font-size: 62.5%;
+  background: #ffffff;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.4rem;
+  color: #212121;
+}
+
